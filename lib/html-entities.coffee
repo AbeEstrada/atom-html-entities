@@ -13,13 +13,14 @@ entitiesCoderDecoder = (action) ->
   return unless editor?
 
   selectedText = editor.getSelectedText()
-  if selectedText
+  if selectedText #convert only selected text
     if action is 'decode'
       editor.insertText(entities.decode(selectedText, 2))
 
     else
       editor.insertText(entities.encode(selectedText, 2))
-  else
+
+  else # convert all text in the editor
     text = editor.getText()
     if action is 'decode'
       editor.setText(entities.decode(text, 2))
