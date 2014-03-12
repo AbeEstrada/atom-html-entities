@@ -1,0 +1,17 @@
+'context-menu':
+  '.overlayer':
+      'HTML Encode Entities': 'html-entities:encode'
+      'HTML Decode Entities': 'html-entities:decode'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'HTML Entities'
+      'submenu': [
+        { 'label': 'Encode', 'command': 'html-entities:encode' }
+        { 'label': 'Decode', 'command': 'html-entities:decode' }
+      ]
+    ]
+  }
+]
