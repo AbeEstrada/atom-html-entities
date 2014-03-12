@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "./lib/html-entities",
   "description": "Encode and decode HTML entities",
-  "repository": "https://github.com/atom/html-entities",
+  "repository": "https://github.com/AbeEstrada/atom-html-entities",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
