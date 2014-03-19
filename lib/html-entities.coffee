@@ -13,19 +13,16 @@ entitiesCoderDecoder = (action) ->
   return unless editor?
 
   entities ?= require 'entities'
-  
+
   selectedText = editor.getSelectedText()
-  if selectedText #convert only selected text
-    if action is 'decode'
-      editor.insertText(entities.decode(selectedText, 2))
+  if selectedText and action is 'decode'
+    editor.insertText(entities.decode(selectedText, 2))
 
-    else
-      editor.insertText(entities.encode(selectedText, 2))
+  else if selectedText
+    editor.insertText(entities.encode(selectedText, 2))
 
-  else # convert all text in the editor
-    text = editor.getText()
-    if action is 'decode'
-      editor.setText(entities.decode(text, 2))
+  else if action is 'decode'
+    editor.setText(entities.decode(editor.getText(), 2))
 
-    else
-      editor.setText(entities.encode(text, 2))
+  else
+    editor.setText(entities.encode(editor.getText(), 2))
