@@ -1,4 +1,4 @@
-entities = require 'entities'
+entities = null
 
 module.exports =
   activate: (state) ->
@@ -12,6 +12,8 @@ entitiesCoderDecoder = (action) ->
   editor = atom.workspace.getActiveEditor()
   return unless editor?
 
+  entities ?= require 'entities'
+  
   selectedText = editor.getSelectedText()
   if selectedText #convert only selected text
     if action is 'decode'
