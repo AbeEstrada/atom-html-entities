@@ -16,13 +16,13 @@ entitiesCoderDecoder = (action) ->
 
   selectedText = editor.getSelectedText()
   if selectedText and action is 'decode'
-    editor.insertText(entities.decode(selectedText, 2))
+    editor.insertText(entities.decodeXML(selectedText))
 
   else if selectedText
-    editor.insertText(entities.encode(selectedText, 2))
+    editor.insertText(entities.encodeXML(selectedText))
 
   else if action is 'decode'
-    editor.setText(entities.decode(editor.getText(), 2))
+    editor.setText(entities.decodeXML(editor.getText()))
 
   else
-    editor.setText(entities.encode(editor.getText(), 2))
+    editor.setText(entities.encodeXML(editor.getText()))
