@@ -22,6 +22,6 @@ describe 'HTML Entities Package', ->
 
   describe 'html decode', ->
     it 'decodes html entities', ->
-      editor.setText '&amp;&aacute;&eacute;&iacute;&gt;'
+      editor.setText '&amp;áéí&gt;'
       editorView.trigger 'html-entities:decode'
       expect(editor.getText()).toBe '&áéí>'
