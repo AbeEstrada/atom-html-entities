@@ -1,4 +1,4 @@
-# HTML Entities
+# HTML Entities [![Build Status](https://travis-ci.org/AbeEstrada/atom-html-entities.svg?branch=master)](https://travis-ci.org/AbeEstrada/atom-html-entities)
 
 Encode and decode HTML entities from selected text or the current document.
 
