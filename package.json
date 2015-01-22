@@ -1,6 +1,6 @@
 {
   "name": "html-entities",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "./lib/html-entities",
   "description": "Encode and decode HTML entities",
   "repository": "https://github.com/AbeEstrada/atom-html-entities",
