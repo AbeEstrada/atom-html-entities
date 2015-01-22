@@ -9,7 +9,7 @@ module.exports =
       entitiesCoderDecoder('decode')
 
 entitiesCoderDecoder = (action) ->
-  editor = atom.workspace.getActiveEditor()
+  editor = atom.workspace.getActiveTextEditor()
   return unless editor?
 
   entities ?= require 'entities'
