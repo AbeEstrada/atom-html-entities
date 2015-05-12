@@ -6,7 +6,7 @@
   "repository": "https://github.com/AbeEstrada/atom-html-entities",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">0.50.0 <2.0.0"
   },
   "dependencies": {
     "html-entities": "^1.1.2"
