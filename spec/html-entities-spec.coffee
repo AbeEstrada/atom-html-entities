@@ -1,27 +1,30 @@
-{WorkspaceView} = require 'atom'
-
 describe 'HTML Entities Package', ->
-  [editor, editorView] = []
+  [editor, workspaceElement] = []
 
   beforeEach ->
-    atom.workspaceView = new WorkspaceView
-    atom.workspace = atom.workspaceView.model
-    atom.workspaceView.openSync()
-
-    editorView = atom.workspaceView.getActiveView()
-    {editor} = editorView
+    workspaceElement = atom.views.getView(atom.workspace)
 
     waitsForPromise ->
       atom.packages.activatePackage 'html-entities'
 
+    waitsForPromise ->
+        atom.workspace.open()
+
+    runs ->
+      editor = atom.workspace.getActiveTextEditor()
+
   describe 'html encode', ->
-    it 'encodes html entities', ->
+    beforeEach ->
       editor.setText '<html>'
-      editorView.trigger 'html-entities:encode'
+      atom.commands.dispatch workspaceElement, 'html-entities:encode'
+
+    it 'encodes html entities', ->
       expect(editor.getText()).toBe '&lt;html&gt;'
 
   describe 'html decode', ->
-    it 'decodes html entities', ->
+    beforeEach ->
       editor.setText '&amp;áéí&gt;'
-      editorView.trigger 'html-entities:decode'
+      atom.commands.dispatch workspaceElement, 'html-entities:decode'
+
+    it 'decodes html entities', ->
       expect(editor.getText()).toBe '&áéí>'
