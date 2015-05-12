@@ -1,4 +1,4 @@
-entities = null
+Entities = null
 
 module.exports =
   activate: (state) ->
@@ -12,17 +12,18 @@ entitiesCoderDecoder = (action) ->
   editor = atom.workspace.getActiveTextEditor()
   return unless editor?
 
-  entities ?= require 'entities'
+  Entities ?= require('html-entities').AllHtmlEntities
+  entities = new Entities()
 
   selectedText = editor.getSelectedText()
   if selectedText and action is 'decode'
-    editor.insertText(entities.decodeXML(selectedText))
+    editor.insertText(entities.decode(selectedText))
 
   else if selectedText
-    editor.insertText(entities.encodeXML(selectedText))
+    editor.insertText(entities.encode(selectedText))
 
   else if action is 'decode'
-    editor.setText(entities.decodeXML(editor.getText()))
+    editor.setText(entities.decode(editor.getText()))
 
   else
-    editor.setText(entities.encodeXML(editor.getText()))
+    editor.setText(entities.encode(editor.getText()))

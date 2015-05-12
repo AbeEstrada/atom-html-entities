@@ -9,6 +9,6 @@
     "atom": ">0.50.0"
   },
   "dependencies": {
-    "entities": "^1.1.1 "
+    "html-entities": "^1.1.2"
   }
 }
