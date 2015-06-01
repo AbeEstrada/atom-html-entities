@@ -6,7 +6,7 @@ Encode and decode HTML entities from selected text or the current document.
 
 If you want you can add this code to you `keymap.cson` to add a shortcut.
 
-    '.editor':
+    'atom-text-editor':
       'f5': 'html-entities:encode'
       'f6': 'html-entities:decode'
 
